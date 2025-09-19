@@ -1,27 +1,3 @@
-## Dotfiles
-
-### .bashrc
-
-```bash
-echo yo, $(date)
-alias sudo="sudo "
-alias cls="clear"
-alias open="xdg-open"
-alias explorer="open "
-alias py="python"
-alias t3="npx create-t3-app@latest"
-alias intellijntm="rm ~/.var/app/com.jetbrains.IntelliJ-IDEA-Community/config/JetBrains/IdeaIC20**/.lock"
-
-export HISTSIZE="5000"
-export HISTFILESIZE="5000"
-```
-
-
-## Scripts
-
-### VM Ware Priority
-
-```bat
 @echo off
 :loop
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -47,4 +23,3 @@ echo Priority set to real time.
 
 timeout /t 3 /nobreak > nul
 goto loop
-```
