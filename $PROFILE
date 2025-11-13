@@ -1,0 +1,4 @@
+function Get-PersistentHistory {
+    Get-Content "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
+}
+Set-Alias phistory Get-PersistentHistory
