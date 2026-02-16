@@ -14,3 +14,7 @@ mkdir -p "$HOME/bin"
 ln -sf "$(pwd)/bin/elevate-opencode.sh" "$HOME/bin/"
 
 echo "Installed. Run: source ~/.bashrc"
+echo ""
+echo "On new servers:"
+echo "  git clone https://github.com/mathysIN/extras.git"
+echo "  cd extras/linux && ./install.sh"
