@@ -17,4 +17,8 @@ fi
 mkdir -p "$HOME/bin"
 ln -sf "$(pwd)/bin/elevate-opencode.sh" "$HOME/bin/"
 
+# Setup opencode config
+mkdir -p "$HOME/.config/opencode"
+cp "$(pwd)/AGENTS.md" "$HOME/.config/opencode/"
+
 echo "Installed. Run: source ~/.bashrc"
