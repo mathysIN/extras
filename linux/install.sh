@@ -1,20 +1,20 @@
 #!/bin/bash
-# Simple install - just symlinks files to home
+# Install - sources extras instead of replacing .bashrc
 
 cd "$(dirname "$0")"
 
-# Backup existing
-[ -f "$HOME/.bashrc" ] && cp "$HOME/.bashrc" "$HOME/.bashrc.backup.$(date +%s)"
+# Copy extras file
+cp "$(pwd)/.bashrc_extras" "$HOME/.bashrc_extras"
 
-# Symlink configs
-ln -sf "$(pwd)/.bashrc" "$HOME/.bashrc"
+# Add source line to existing .bashrc if not already there
+if ! grep -q "source ~/.bashrc_extras" "$HOME/.bashrc" 2>/dev/null; then
+    echo "" >> "$HOME/.bashrc"
+    echo "# Load extras from dotfiles repo" >> "$HOME/.bashrc"
+    echo "source ~/.bashrc_extras" >> "$HOME/.bashrc"
+fi
 
 # Setup bin
 mkdir -p "$HOME/bin"
 ln -sf "$(pwd)/bin/elevate-opencode.sh" "$HOME/bin/"
 
 echo "Installed. Run: source ~/.bashrc"
-echo ""
-echo "On new servers:"
-echo "  git clone https://github.com/mathysIN/extras.git"
-echo "  cd extras/linux && ./install.sh"
